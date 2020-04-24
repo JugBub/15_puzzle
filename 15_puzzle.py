@@ -7,6 +7,8 @@ import findPrimeFactors as fpf
 
 import createAndPrintList as cpl
 
+import movingPieces as mP
+
 ### variables
 
 ### functions
@@ -45,4 +47,19 @@ if isPrime == None and squared == None:
     x, y = fpf.numberFactors(s,primeNumbers)
 print(x, y)
 
+### print the board
+
+listOfNumbers = cpl.createList(x,y)
+
+cpl.printList(x,y,listOfNumbers)
+
+### Game
+game = True
+while game == True:
+    composition = mP.wheresNumber(x,y,listOfNumbers,isPrime)
+    askedNumber = mP.askForNumbers(x,y,listOfNumbers,composition)
+    mP.switchPlaceInList(listOfNumbers,askedNumber)
+
+    #prints board again
+    cpl.printList(x,y,listOfNumbers)
 ### trash
