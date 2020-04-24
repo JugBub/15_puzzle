@@ -37,6 +37,10 @@ import findPrimeFactors
 #         i = False
 # print(o)  
 
-a = [1,1,1,2]
-a.remove(1)
-print(a)
+# a = [1,1,1,2]
+# a.remove(1)
+# print(a)
+
+l = [1]
+i = l[0]
+print (i)

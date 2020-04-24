@@ -9,6 +9,7 @@ import createAndPrintList as cpl
 
 import movingPieces as mP
 
+import shuffle
 ### variables
 
 ### functions
@@ -47,9 +48,20 @@ if isPrime == None and squared == None:
     x, y = fpf.numberFactors(s,primeNumbers)
 print(x, y)
 
+### shuffle the board
+listOfNumbers = cpl.createList(x,y)
+i = 0
+while i < 100:
+    c = mP.wheresNumber(x,y,listOfNumbers,isPrime)
+    r = shuffle.askForRandomInput(x,y,c,listOfNumbers)
+    a = mP.askForNumbers(x,y,listOfNumbers,c,r)
+    l = mP.switchPlaceInList(listOfNumbers,a)
+    i = i+1
+print(l)
+
 ### print the board
 
-listOfNumbers = cpl.createList(x,y)
+
 
 cpl.printList(x,y,listOfNumbers)
 
@@ -57,8 +69,9 @@ cpl.printList(x,y,listOfNumbers)
 game = True
 while game == True:
     composition = mP.wheresNumber(x,y,listOfNumbers,isPrime)
-    askedNumber = mP.askForNumbers(x,y,listOfNumbers,composition)
-    mP.switchPlaceInList(listOfNumbers,askedNumber)
+    askedNumber = mP.askForInput(x,y)
+    askedNumber = mP.askForNumbers(x,y,listOfNumbers,composition,askedNumber)
+    listOfNumbers = mP.switchPlaceInList(listOfNumbers,askedNumber)
 
     #prints board again
     cpl.printList(x,y,listOfNumbers)
