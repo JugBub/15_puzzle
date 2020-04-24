@@ -1,17 +1,20 @@
 ### imports
+import importlib
 
 import math
 
+import findPrimeFactors as fpf
+
+import createAndPrintList as cpl
+
 ### variables
-
-
 
 ### functions
 
 def defineBoardSize():
     done = True
     while done == True:
-        wSstr = input("what x?  ")
+        wSstr = input("what s?  ")
         try:
             wS = int(wSstr)
             s = wS
@@ -21,21 +24,25 @@ def defineBoardSize():
     return s    
 
 def isSWhole(s):
-    s
-
-def isBoardSizeCorrect(s):
-    s = math.sqrt(s)    
-    try:
-        s = s
-    except:
-        print("try again")
-    return s
+    if s == int(s):
+        return True
 
 
-### main
+### setup
 
 s = defineBoardSize()
-s = isBoardSizeCorrect(s)
-print(s)
+primeNumbers = fpf.generatePrimes(s)
+isPrime = fpf.isNumberPrime(s,primeNumbers)
+if isPrime == True:    
+    x = s
+    y = 1
+else :
+    squared = fpf.isNumberSquared(s)
+    if squared == True:
+        x = int(math.sqrt(s))
+        y = int(math.sqrt(s))
+if isPrime == None and squared == None:
+    x, y = fpf.numberFactors(s,primeNumbers)
+print(x, y)
 
 ### trash
