@@ -11,7 +11,6 @@ def createList(x,y):
 
 def printList(x,y,l):
     n = 0
-    
     for i in range(y):
         for j in range(x):
             print("[%d]" % l[n], end= "")

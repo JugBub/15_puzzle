@@ -76,7 +76,7 @@ def askForNumbers(x,y,l,c):
             if o.count(0) == 0:
                 i = False
             else:
-                for i1 in range(o.count(0)):
+                for i in range(o.count(0)):
                     o.remove(0)                
         print(o)
         if o.count(l.index(a)) == 1:
