@@ -3,44 +3,42 @@
 # # a = 0
 # # n = the number to switch with n
 
-isPrime = False
-
 def wheresNumber(x,y,l,p):
     if p != True:
         i = True
         while i == True:
             c = [0,0,0,0] #t,l,r,b
-            if l.index(0) == 0:
+            if l.index(0) == 0 and l.index(0) != x:  # tl
                 c = [0,0,1,1]
                 break
-            if l.index(0) == x-1:
+            if l.index(0) == x-1:  #tr
                 c = [0,1,0,1]
                 break
-            if l.index(0) == (x*y-x):
+            if l.index(0) == (x*y-x): #bl
                 c = [1,0,1,0]
                 break
-            if l.index(0) == (x*y-1):
+            if l.index(0) == (x*y-1): # br
                 c = [1,1,0,0]
                 break
-            if l.index(0) % x == 0:
+            if l.index(0) % x == 0: # l
                 c = [1,0,1,1]
                 break
-            if (l.index(0)+1) % x == 0:
+            if (l.index(0)+1) % x == 0: # r
                 c = [1,1,0,1]
                 break
-            if l.index(0) < (x-1):
+            if l.index(0) < (x-1): # t
                 c = [0,1,1,1]
                 break
-            if l.index(0) > x*y-1-x:
+            if l.index(0) > x*y-1-x: # b
                 c = [1,1,1,0]
                 break
-            c = [1,1,1,1]
+            c = [1,1,1,1] # c
             i = False
     else:
         c = [0,1,1,0]
     return c
 
-def askForInput(x,y):
+def askForInput(x,y):  
     done = True
     while done == True:
         wAstr = input("what a?  ")
@@ -53,28 +51,21 @@ def askForInput(x,y):
                 print("Try again")
         except:
             print("Try again")
+
     return a
 
-def gettingOperations(x,c,n):
+def gettingOperations(x,y,c,n):
     o = [(n-x),(n-1),(n+1),(n+x)]#operations
-    i = True
-    c1 = 0
-    while i == True:
-        try:
-            if c[c1] == 0:
-                o[c1] = 0
-                c1 = c1 + 1
-            else:
-                c1 = c1 + 1
-        except:
-            i = False
+    for i in range(len(c)):
+        if c[i] == 0:
+            o[i] = x*y
     i = True
     while i == True:
-        if o.count(0) == 0:
+        if o.count(x*y) == 0:
             i = False
         else:
-            for i in range(o.count(0)):
-                o.remove(0)
+            for i in range(o.count(x*y)):
+                o.remove(x*y)
     return o
 def askForNumbers(x,y,l,c,a):
     n = l.index(0)
@@ -83,12 +74,7 @@ def askForNumbers(x,y,l,c,a):
     while done == True:
         if TA == True:
             a = askForInput(x,y)
-        o = gettingOperations(x,c,n)
-        
-
-                        
-        print(o)
-        print(a)
+        o = gettingOperations(x,y,c,n)
         if o.count(l.index(a)) >= 1:
             done = False
         else:
