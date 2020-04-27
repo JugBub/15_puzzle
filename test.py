@@ -87,18 +87,18 @@ import random
 
 ### shuffle board
 
-l = [1,2,3,4,5,6,7,8,0]
+# l = [1,2,3,4,5,6,7,8,0]
 
-lf = l
-l = []
+# lf = l
+# l = []
 
-for i in range(3*3):
-    r = random.choices(lf)
-    r = r[0]
-    lf.pop(lf.index(r))
-    l.append(r)
+# for i in range(3*3):
+#     r = random.choices(lf)
+#     r = r[0]
+#     lf.pop(lf.index(r))
+#     l.append(r)
     
-    print(l)
+#     print(l)
 
 
 

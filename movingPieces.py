@@ -7,7 +7,7 @@ def wheresNumber(x,y,l,p):
     if p != True:
         i = True
         while i == True:
-            c = [0,0,0,0] #t,l,r,b
+            c = [0,0,0,0] #t,l,r,d
             if l.index(0) == 0 and l.index(0) != x:  # tl
                 c = [0,0,1,1]
                 break
@@ -54,15 +54,17 @@ def askForInput(x,y):
 
     return a
 
+
+
 def gettingOperations(x,y,c,n):
     o = [(n-x),(n-1),(n+1),(n+x)]#operations
     for i in range(len(c)):
         if c[i] == 0:
             o[i] = x*y
     i = True
-    while i == True:
+    while i:
         if o.count(x*y) == 0:
-            i = False
+            break
         else:
             for i in range(o.count(x*y)):
                 o.remove(x*y)
